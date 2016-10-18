@@ -1,6 +1,6 @@
 # Exercise 3: Data Frame Practice with `dplyr`.
 # Use a different appraoch to accomplish the same tasks as exercise-1
-
+install.packages('dplyr')
 
 # Install devtools package: allows installations from GitHub
 install.packages('devtools')
@@ -9,10 +9,13 @@ install.packages('devtools')
 devtools::install_github("hadley/fueleconomy")
 
 # Require/library the fueleconomy package
-
-
+library(fueleconomy)
+library(dplyr)
+View(mtcars)
 # Which Accura model has the best hwy MPG in 2015? (without method chaining)
-
+accuras <- filter(vehicles, make == 'Accura', year == 2015)
+best.accura <- filter(accuras, hwy == max(hwy))
+best.accura.model <- select(best.accura, model)
 
 # Which Accura model has the best hwy MPG in 2015? (nesting functions)
 
